@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Algorand NFT Testimonial Generator</title>
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --accent: #4a90e2;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: #333;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: var(--accent);
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    form {
+      background-color: var(--card);
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px var(--shadow);
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 30px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: var(--accent);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #357abd;
+    }
+
+    .testimonial-card {
+      background-color: var(--card);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px var(--shadow);
+      margin: 10px 0;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .testimonial-card h3 {
+      margin: 0 0 10px;
+      color: var(--accent);
+    }
+
+    .testimonial-card p {
+      margin: 5px 0;
+      line-height: 1.5;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💎 Algorand NFT Testimonial Generator</h1>
+
+  <form method="POST">
+    <input type="text" name="wallet" placeholder="Enter your Algorand wallet address" required />
+    <button type="submit">✨ Generate Testimonials</button>
+  </form>
+
+  {% if testimonials %}
+    {% for nft in testimonials %}
+      <div class="testimonial-card">
+        <h3>{{ nft.name }}</h3>
+        <p><strong>Description:</strong> {{ nft.desc }}</p>
+        <p><strong>💬 Testimonial:</strong> {{ nft.testimonial }}</p>
+      </div>
+    {% endfor %}
+  {% endif %}
+
+  <div class="footer">
+    Built with 🧠 + 💙 using Gemini & Algorand APIs
+  </div>
+</body>
+</html>
